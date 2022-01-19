@@ -2,8 +2,8 @@ package com.example.demo.shipment_inventory_item;
 
 import com.example.demo.inventory.InventoryItem;
 import com.example.demo.shipment.Shipment;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
@@ -21,6 +21,7 @@ public class ShipmentInventoryItem {
             name = "shipment_id",
             referencedColumnName = "id"
     )
+    @JsonIgnore
     private Shipment shipment;
 
     @Id
@@ -36,4 +37,17 @@ public class ShipmentInventoryItem {
     )
     private int amountOfItem;
 
+    @Override
+    public String toString() {
+        String s = "ShipmentInventoryItem{";
+
+        if (shipment != null)
+            s += "shipment.id=" + shipment.getId();
+        if (inventoryItem != null)
+            s += ", inventoryItem.id=" + inventoryItem.getId();
+
+        s += ", amountOfItem=" + amountOfItem + '}';
+
+        return s;
+    }
 }

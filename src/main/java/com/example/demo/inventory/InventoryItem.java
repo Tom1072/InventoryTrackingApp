@@ -1,11 +1,9 @@
 package com.example.demo.inventory;
 
-import com.example.demo.shipment_inventory_item.ShipmentInventoryItem;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "inventory")
@@ -33,8 +31,9 @@ public class InventoryItem {
     private Integer unitInStock;
     private Double unitPrice;
 
-    @OneToMany(mappedBy = "shipment")
-    private List<ShipmentInventoryItem> shipments;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "shipment")
+//    private List<ShipmentInventoryItem> shipments;
 
     public InventoryItem(String itemName, Integer unitInStock, Double unitPrice) {
         this.itemName = itemName;
