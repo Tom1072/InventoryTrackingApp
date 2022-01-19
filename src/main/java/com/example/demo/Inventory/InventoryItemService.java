@@ -1,18 +1,21 @@
 package com.example.demo.Inventory;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class InventoryItemService {
 
-//    private InventoryItem inventoryItem;
+    InventoryItemRepository repository;
+
+    @Autowired
+    public InventoryItemService(InventoryItemRepository repository) {
+        this.repository = repository;
+    }
 
     public List<InventoryItem> getInventoryItems() {
-        return List.of(
-                new InventoryItem("butter", 10, 20),
-                new InventoryItem("egg", 20, 20)
-        );
+        return repository.findAll();
     }
 }

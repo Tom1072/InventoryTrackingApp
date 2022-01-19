@@ -1,10 +1,23 @@
 package com.example.demo.Inventory;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Inventory")
 public class InventoryItem {
-    private long id;
+    @Id
+    @SequenceGenerator(name="inventory_item_seq",
+            sequenceName="inventory_item_seq",
+            allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator="inventory_item_seq")
+    private Long id;
+
+    @Column(nullable = false)
     private String itemName;
-    private int unitInStock;
-    private double unitPrice;
+
+    private Integer unitInStock;
+    private Double unitPrice;
 
     public InventoryItem() {
     }
