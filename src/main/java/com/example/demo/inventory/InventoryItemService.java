@@ -1,4 +1,4 @@
-package com.example.demo.Inventory;
+package com.example.demo.inventory;
 
 import com.example.demo.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class InventoryItemService {
     public void updateInventoryItem(Long itemId, String itemName, Integer unitInStock, Double unitPrice) {
         Optional<InventoryItem> inventoryItem = repository.findById(itemId);
 
-        if (!inventoryItem.isPresent())
+        if (inventoryItem.isEmpty())
             throw new BadRequestException(String.format("Item with id %d doesn't exist", itemId));
 
         if (itemName != null && itemName.length() > 0) {
