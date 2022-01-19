@@ -11,7 +11,7 @@ import javax.persistence.*;
  * Association class between Shipment and InventoryItem
  */
 @Entity
-@Table(name = "shipment_inventory_item")
+@Table(name = "shipment_inventory")
 @IdClass(ShipmentInventoryItemId.class)
 @Data
 public class ShipmentInventoryItem {
