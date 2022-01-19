@@ -35,6 +35,10 @@ public class InventoryItem {
         this.unitPrice = unitPrice;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getItemName() {
         return itemName;
     }
@@ -57,5 +61,15 @@ public class InventoryItem {
 
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "InventoryItem{" +
+                "id=" + id +
+                ", itemName='" + itemName + '\'' +
+                ", unitInStock=" + unitInStock +
+                ", unitPrice=" + unitPrice +
+                '}';
     }
 }
