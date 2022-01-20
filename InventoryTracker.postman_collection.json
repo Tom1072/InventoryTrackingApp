@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "c32d688f-695f-4711-9207-55e7e1871162",
+		"name": "InventoryTracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get a list of inventory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/inventory",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new item to inventory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"itemName\": \"pizza\",\n    \"unitInStock\": 100,\n    \"unitPrice\": 12.5\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/inventory",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory"
+					],
+					"query": [
+						{
+							"key": "itemName",
+							"value": "fish sauce",
+							"disabled": true
+						},
+						{
+							"key": "unitInStock",
+							"value": "100",
+							"disabled": true
+						},
+						{
+							"key": "unitPrice",
+							"value": "9",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an item from inventory",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/inventory/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an item in inventory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/inventory/1?itemName=banana&unitInStock=10&unitPrice=9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"1"
+					],
+					"query": [
+						{
+							"key": "itemName",
+							"value": "banana"
+						},
+						{
+							"key": "unitInStock",
+							"value": "10"
+						},
+						{
+							"key": "unitPrice",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a list of all shipments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/shipment",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"shipment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new shipment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"destination\": \"Montreal\",\n    \"shipmentItems\" : [\n        {\n            \"itemId\": 2,\n            \"amountOfItem\": 5\n        },\n        {\n            \"itemId\": 3,\n            \"amountOfItem\": 2\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/shipment",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"shipment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
